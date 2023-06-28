@@ -4,6 +4,10 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 17.6.33801.468
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DoctorWho.API", "DoctorWho.API\DoctorWho.API.csproj", "{6F9692E9-E30F-411E-A3FF-4E43511FF824}"
+	ProjectSection(ProjectDependencies) = postProject
+		{2548290E-8B45-43A2-A33F-15BA74FBADBB} = {2548290E-8B45-43A2-A33F-15BA74FBADBB}
+		{9DAD4152-33A7-444D-B23D-3704F5112C84} = {9DAD4152-33A7-444D-B23D-3704F5112C84}
+	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DoctorWhoDomain", "DoctorWhoDomain\DoctorWhoDomain.csproj", "{9DAD4152-33A7-444D-B23D-3704F5112C84}"
 EndProject
