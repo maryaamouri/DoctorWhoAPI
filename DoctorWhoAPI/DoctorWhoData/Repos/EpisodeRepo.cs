@@ -1,5 +1,4 @@
-﻿using DoctorWhoDomain.Repos;
-using DoctorWhoDomain;
+﻿using DoctorWhoDomain.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace DoctorWhoData.Repos
 {
-    internal class EpisodeRepo : IEpisodeRepo<Episode>
+    public class EpisodeRepo : IEpisodeRepo
     {
         private readonly DoctorWhoDBContext _context;
 
@@ -64,11 +63,11 @@ namespace DoctorWhoData.Repos
             return (await _context.SaveChangesAsync() >= 0);
         }
 
-        public async void AddCompanionToEpisodeAsync(Episode episode,Companion companion)
+        public async void AddCompanionToEpisodeAsync(Episode episode, Companion companion)
         {
             var myEpisode = _context.Episodes.Where(e => e.Equals(episode)).FirstOrDefault();
             if (myEpisode != null)
-                episode.Companions.Add(companion); 
+                episode.Companions.Add(companion);
             await SaveChangesAsync();
         }
 

@@ -1,5 +1,4 @@
-﻿using DoctorWhoDomain.Repos;
-using DoctorWhoDomain;
+﻿using DoctorWhoDomain.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace DoctorWhoData.Repos
 {
-    public class AuthorRepo : IRepo<Author>
+    public class AuthorRepo : IAuthorRepo
     {
         private readonly DoctorWhoDBContext _context;
 
