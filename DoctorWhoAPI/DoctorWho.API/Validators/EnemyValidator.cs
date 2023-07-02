@@ -1,7 +1,8 @@
-﻿using DoctorWhoDomain.Entities;
+﻿using DoctorWho.API.Models;
+using DoctorWhoDomain.Entities;
 using FluentValidation;
 
-public class EnemyValidator : AbstractValidator<Enemy>
+public class EnemyValidator : AbstractValidator<EnemyDto>
 {
     public EnemyValidator()
     {
@@ -13,6 +14,6 @@ public class EnemyValidator : AbstractValidator<Enemy>
         RuleFor(e => e.Description)
             .NotEmpty().WithMessage("Description is required.")
             .MaximumLength(1000).WithMessage("Description cannot exceed 1000 characters.")
-             .Matches("^[a-zA-Z0-9 ] *$").WithMessage("Description can contains only charactor or numbers."); ;
+            .Matches("^[a-zA-Z0-9 ] *$").WithMessage("Description can contains only charactor or numbers."); ;
     }
 }
