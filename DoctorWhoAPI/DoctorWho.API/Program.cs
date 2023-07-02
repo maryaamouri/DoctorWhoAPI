@@ -1,6 +1,9 @@
+using DoctorWho.API.Models;
+using DoctorWho.API.Validators;
 using DoctorWhoData;
 using DoctorWhoData.Repos;
 using DoctorWhoDomain;
+using FluentValidation;
 using Microsoft.EntityFrameworkCore;
 using System.Text.Json.Serialization;
 var builder = WebApplication.CreateBuilder(args);
@@ -21,7 +24,12 @@ builder.Services.AddScoped<IAuthorRepo, AuthorRepo>();
 builder.Services.AddScoped<ICompanionRepo, CompanionRepo>();
 builder.Services.AddScoped<IEnemyRepo, EnemyRepo>();
 builder.Services.AddScoped<IEpisodeRepo, EpisodeRepo>();
-// builder.Services.AddFluentValidation()
+
+builder.Services.AddScoped<IValidator<DoctorDto>,DoctorValidator>();
+builder.Services.AddScoped<IValidator<AuthorDto>, AuthorValidator>();
+builder.Services.AddScoped<IValidator<CompanionDto>, CompanionValidator>();
+builder.Services.AddScoped<IValidator<EnemyDto>, EnemyValidator>();
+builder.Services.AddScoped<IValidator<EpisodeDto>, EpisodeValidator>();
 
 var app = builder.Build();
 app.MapControllers();
