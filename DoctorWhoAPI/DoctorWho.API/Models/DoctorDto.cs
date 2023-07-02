@@ -1,4 +1,6 @@
-﻿namespace DoctorWho.API.Models
+﻿using Microsoft.AspNetCore.OpenApi;
+using Microsoft.AspNetCore.Http.HttpResults;
+namespace DoctorWho.API.Models
 {
     public class DoctorDto
     {
@@ -11,3 +13,4 @@
 
     }
 }
+
