@@ -21,6 +21,7 @@ builder.Services.AddScoped<IAuthorRepo, AuthorRepo>();
 builder.Services.AddScoped<ICompanionRepo, CompanionRepo>();
 builder.Services.AddScoped<IEnemyRepo, EnemyRepo>();
 builder.Services.AddScoped<IEpisodeRepo, EpisodeRepo>();
+// builder.Services.AddFluentValidation()
 
 var app = builder.Build();
 app.MapControllers();
