@@ -1,7 +1,8 @@
-﻿using DoctorWhoDomain.Entities;
+﻿using DoctorWho.API.Models;
+using DoctorWhoDomain.Entities;
 using FluentValidation;
 
-public class CompanionValidator : AbstractValidator<Companion>
+public class CompanionValidator : AbstractValidator<CompanionDto>
 {
     public CompanionValidator()
     {
@@ -12,6 +13,7 @@ public class CompanionValidator : AbstractValidator<Companion>
 
         RuleFor(c => c.WhoPlayed)
             .NotEmpty().WithMessage("Actor name is required.")
+            .Matches("^[a-zA-Z0-9 ] *$").WithMessage("Actor Name can only contains chars or numbers")
             .MaximumLength(50).WithMessage("Actor Name cannot exceed 50 characters.");
     }
 }
