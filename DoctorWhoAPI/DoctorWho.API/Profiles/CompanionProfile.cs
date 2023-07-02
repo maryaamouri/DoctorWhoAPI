@@ -5,7 +5,7 @@ namespace DoctorWho.API.Profiles
 {
     public class CompanionProfile : Profile
     {
-        protected CompanionProfile()
+        public CompanionProfile()
         {
             CreateMap<Companion, Models.CompanionDto>()
                 .ReverseMap();

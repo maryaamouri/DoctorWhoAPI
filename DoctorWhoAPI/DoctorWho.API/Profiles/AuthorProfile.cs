@@ -5,7 +5,7 @@ namespace DoctorWho.API.Profiles
 {
     public class AuthorProfile : Profile
     {
-        protected internal AuthorProfile() : base()
+        public AuthorProfile() : base()
         {
             CreateMap<Models.AuthorDto, Author>()
                 .ReverseMap();

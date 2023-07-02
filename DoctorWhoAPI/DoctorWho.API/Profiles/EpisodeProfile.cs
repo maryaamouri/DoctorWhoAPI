@@ -5,7 +5,7 @@ namespace DoctorWho.API.Profiles
 {
     public class EpisodeProfile : Profile
     {
-        protected EpisodeProfile()
+        public EpisodeProfile()
         {
             CreateMap<Episode,Models.EpisodeDto>();
         }
