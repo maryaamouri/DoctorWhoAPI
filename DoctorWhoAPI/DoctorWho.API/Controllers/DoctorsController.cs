@@ -26,6 +26,18 @@ namespace DoctorWho.API.Controllers
                 return NotFound();
             return Ok(_mapper.Map<IList<DoctorDto>>(doctors));
         }
+        [HttpDelete("delete/{doctorId}")]
+        public async Task<ActionResult> Delete(int doctorId)
+        {
+            Console.WriteLine(doctorId);
+            if (doctorId == 0) 
+                return NotFound();
+            var doctor = await _doctorRepo.GetByIdAsync(doctorId);
+            if(doctor == null)
+                return NotFound();
+            await _doctorRepo.DeleteAsync(doctorId);
+            return Ok($"doctor {doctor.Name} with id {doctorId} is deleted.");
+        }
 
     }
 }
