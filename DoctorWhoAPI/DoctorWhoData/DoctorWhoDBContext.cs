@@ -18,7 +18,7 @@ namespace DoctorWhoData
         public DbSet<EpisodeCompanion> EpisodeCompanions { get;set; }
         public DbSet<ViewEpisode> ViewEpisodes { get;set; }
 
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
+     protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
          modelBuilder.Entity<Doctor>()
             .HasMany(e => e.Episodes)
