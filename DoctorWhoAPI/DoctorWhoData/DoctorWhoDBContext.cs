@@ -1,11 +1,14 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using DoctorWhoDomain;
-using System.Reflection.Metadata;
+using DoctorWhoDomain.Entities;
 
 namespace DoctorWhoData
 {
     public class DoctorWhoDBContext : DbContext
     {
+        public DoctorWhoDBContext(DbContextOptions <DoctorWhoDBContext>options) 
+            : base(options)
+        {   }
+
         public DbSet<Author> Authors { get; set; }
         public DbSet<Enemy> Enemies { get; set; }
         public DbSet<Companion> Companions { get; set; }
@@ -15,12 +18,6 @@ namespace DoctorWhoData
         public DbSet<EpisodeCompanion> EpisodeCompanions { get;set; }
         public DbSet<ViewEpisode> ViewEpisodes { get;set; }
 
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            optionsBuilder.UseSqlServer(
-              "Data Source = (localdb)\\MSSQLLocalDB; Initial Catalog = DoctorWhoDB"
-            );
-        }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
          modelBuilder.Entity<Doctor>()
