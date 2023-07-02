@@ -34,7 +34,7 @@ namespace DoctorWho.API.Validators
         }
         private bool IsValidDate(DateTime date)
         {
-            return !date.Equals(default(System.DateTime));
+            return date != DateTime.MinValue && date <= DateTime.Now;
         }
     }
 }
