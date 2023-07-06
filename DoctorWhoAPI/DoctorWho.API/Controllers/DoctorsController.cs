@@ -7,12 +7,12 @@ namespace DoctorWho.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class DoctorsController : ControllerBase
+    public class DoctorController : ControllerBase
     {
         private readonly IDoctorRepo _doctorRepo;
         private readonly IMapper _mapper;
 
-        public DoctorsController(IDoctorRepo doctorRepo, IMapper mapper)
+        public DoctorController(IDoctorRepo doctorRepo, IMapper mapper)
         {
             _doctorRepo = doctorRepo;
             _mapper = mapper;
@@ -29,7 +29,6 @@ namespace DoctorWho.API.Controllers
         [HttpDelete("delete/{doctorId}")]
         public async Task<ActionResult> Delete(int doctorId)
         {
-            Console.WriteLine(doctorId);
             if (doctorId == 0) 
                 return NotFound();
             var doctor = await _doctorRepo.GetByIdAsync(doctorId);
