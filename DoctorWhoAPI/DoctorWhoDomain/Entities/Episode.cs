@@ -21,9 +21,9 @@ namespace DoctorWhoDomain.Entities
         public DateTime EpisodeDate { set; get; }
         public int AuthorId { set; get; }
         public int DoctorId { set; get; }
-        public Doctor doctor { set; get; }
-        public Author author { set; get; }
-        public string Notes { set; get; }
+        public Doctor? Doctor { set; get; }
+        public Author? Author { set; get; }
+        public string? Notes { set; get; }
         public IList<Companion> Companions;
         public IList<Enemy> Enemies;
 
