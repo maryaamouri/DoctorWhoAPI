@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using DoctorWho.API.Models;
 using DoctorWhoDomain.Entities;
 
 namespace DoctorWho.API.Profiles
@@ -7,7 +8,7 @@ namespace DoctorWho.API.Profiles
     {
         public EpisodeProfile()
         {
-            CreateMap<Episode,Models.EpisodeDto>();
+            CreateMap<Episode, EpisodeDto>().ReverseMap();
         }
     }
 }
