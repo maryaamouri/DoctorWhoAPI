@@ -4,6 +4,7 @@ using DoctorWhoData;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DoctorWhoData.Migrations
 {
     [DbContext(typeof(DoctorWhoDBContext))]
-    partial class DoctorWhoDBContextModelSnapshot : ModelSnapshot
+    [Migration("20230706084100_MakeDoctorAndEnemyNullable")]
+    partial class MakeDoctorAndEnemyNullable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

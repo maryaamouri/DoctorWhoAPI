@@ -4,6 +4,7 @@ using DoctorWhoData;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DoctorWhoData.Migrations
 {
     [DbContext(typeof(DoctorWhoDBContext))]
-    partial class DoctorWhoDBContextModelSnapshot : ModelSnapshot
+    [Migration("20230705173125_makeEpisodeFeildsNullable")]
+    partial class makeEpisodeFeildsNullable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -152,45 +155,45 @@ namespace DoctorWhoData.Migrations
                         new
                         {
                             DoctorId = 1,
-                            BirthDate = new DateTime(2023, 7, 6, 11, 41, 0, 226, DateTimeKind.Local).AddTicks(7307),
-                            FirstEpisodeDate = new DateTime(2023, 7, 6, 11, 41, 0, 226, DateTimeKind.Local).AddTicks(7370),
-                            LastEpisodeDate = new DateTime(2023, 7, 6, 11, 41, 0, 226, DateTimeKind.Local).AddTicks(7373),
+                            BirthDate = new DateTime(2023, 7, 5, 20, 31, 25, 3, DateTimeKind.Local).AddTicks(595),
+                            FirstEpisodeDate = new DateTime(2023, 7, 5, 20, 31, 25, 3, DateTimeKind.Local).AddTicks(662),
+                            LastEpisodeDate = new DateTime(2023, 7, 5, 20, 31, 25, 3, DateTimeKind.Local).AddTicks(666),
                             Name = "Doctor Name 1",
                             Number = "Doctor 1"
                         },
                         new
                         {
                             DoctorId = 2,
-                            BirthDate = new DateTime(2023, 7, 6, 11, 41, 0, 226, DateTimeKind.Local).AddTicks(7377),
-                            FirstEpisodeDate = new DateTime(2023, 7, 6, 11, 41, 0, 226, DateTimeKind.Local).AddTicks(7380),
-                            LastEpisodeDate = new DateTime(2023, 7, 6, 11, 41, 0, 226, DateTimeKind.Local).AddTicks(7383),
+                            BirthDate = new DateTime(2023, 7, 5, 20, 31, 25, 3, DateTimeKind.Local).AddTicks(671),
+                            FirstEpisodeDate = new DateTime(2023, 7, 5, 20, 31, 25, 3, DateTimeKind.Local).AddTicks(674),
+                            LastEpisodeDate = new DateTime(2023, 7, 5, 20, 31, 25, 3, DateTimeKind.Local).AddTicks(677),
                             Name = "Doctor Name 2",
                             Number = "Doctor 2"
                         },
                         new
                         {
                             DoctorId = 3,
-                            BirthDate = new DateTime(2023, 7, 6, 11, 41, 0, 226, DateTimeKind.Local).AddTicks(7387),
-                            FirstEpisodeDate = new DateTime(2023, 7, 6, 11, 41, 0, 226, DateTimeKind.Local).AddTicks(7389),
-                            LastEpisodeDate = new DateTime(2023, 7, 6, 11, 41, 0, 226, DateTimeKind.Local).AddTicks(7482),
+                            BirthDate = new DateTime(2023, 7, 5, 20, 31, 25, 3, DateTimeKind.Local).AddTicks(682),
+                            FirstEpisodeDate = new DateTime(2023, 7, 5, 20, 31, 25, 3, DateTimeKind.Local).AddTicks(684),
+                            LastEpisodeDate = new DateTime(2023, 7, 5, 20, 31, 25, 3, DateTimeKind.Local).AddTicks(687),
                             Name = "Doctor Name 3",
                             Number = "Doctor 3"
                         },
                         new
                         {
                             DoctorId = 4,
-                            BirthDate = new DateTime(2023, 7, 6, 11, 41, 0, 226, DateTimeKind.Local).AddTicks(7489),
-                            FirstEpisodeDate = new DateTime(2023, 7, 6, 11, 41, 0, 226, DateTimeKind.Local).AddTicks(7492),
-                            LastEpisodeDate = new DateTime(2023, 7, 6, 11, 41, 0, 226, DateTimeKind.Local).AddTicks(7494),
+                            BirthDate = new DateTime(2023, 7, 5, 20, 31, 25, 3, DateTimeKind.Local).AddTicks(691),
+                            FirstEpisodeDate = new DateTime(2023, 7, 5, 20, 31, 25, 3, DateTimeKind.Local).AddTicks(694),
+                            LastEpisodeDate = new DateTime(2023, 7, 5, 20, 31, 25, 3, DateTimeKind.Local).AddTicks(697),
                             Name = "Doctor Name 4",
                             Number = "Doctor 4"
                         },
                         new
                         {
                             DoctorId = 5,
-                            BirthDate = new DateTime(2023, 7, 6, 11, 41, 0, 226, DateTimeKind.Local).AddTicks(7498),
-                            FirstEpisodeDate = new DateTime(2023, 7, 6, 11, 41, 0, 226, DateTimeKind.Local).AddTicks(7501),
-                            LastEpisodeDate = new DateTime(2023, 7, 6, 11, 41, 0, 226, DateTimeKind.Local).AddTicks(7504),
+                            BirthDate = new DateTime(2023, 7, 5, 20, 31, 25, 3, DateTimeKind.Local).AddTicks(700),
+                            FirstEpisodeDate = new DateTime(2023, 7, 5, 20, 31, 25, 3, DateTimeKind.Local).AddTicks(703),
+                            LastEpisodeDate = new DateTime(2023, 7, 5, 20, 31, 25, 3, DateTimeKind.Local).AddTicks(706),
                             Name = "Doctor Name 5",
                             Number = "Doctor 5"
                         });
@@ -297,7 +300,7 @@ namespace DoctorWhoData.Migrations
                             EpisodeId = 1,
                             AuthorId = 1,
                             DoctorId = 1,
-                            EpisodeDate = new DateTime(2023, 7, 6, 11, 41, 0, 226, DateTimeKind.Local).AddTicks(7551),
+                            EpisodeDate = new DateTime(2023, 7, 5, 20, 31, 25, 3, DateTimeKind.Local).AddTicks(751),
                             Notes = "Note 1",
                             Number = 1,
                             SeriesNumber = 1,
@@ -309,7 +312,7 @@ namespace DoctorWhoData.Migrations
                             EpisodeId = 2,
                             AuthorId = 2,
                             DoctorId = 2,
-                            EpisodeDate = new DateTime(2023, 7, 6, 11, 41, 0, 226, DateTimeKind.Local).AddTicks(7558),
+                            EpisodeDate = new DateTime(2023, 7, 5, 20, 31, 25, 3, DateTimeKind.Local).AddTicks(758),
                             Notes = "Note 2",
                             Number = 2,
                             SeriesNumber = 1,
@@ -321,7 +324,7 @@ namespace DoctorWhoData.Migrations
                             EpisodeId = 3,
                             AuthorId = 3,
                             DoctorId = 3,
-                            EpisodeDate = new DateTime(2023, 7, 6, 11, 41, 0, 226, DateTimeKind.Local).AddTicks(7564),
+                            EpisodeDate = new DateTime(2023, 7, 5, 20, 31, 25, 3, DateTimeKind.Local).AddTicks(763),
                             Notes = "Note 3",
                             Number = 3,
                             SeriesNumber = 1,
@@ -333,7 +336,7 @@ namespace DoctorWhoData.Migrations
                             EpisodeId = 4,
                             AuthorId = 4,
                             DoctorId = 4,
-                            EpisodeDate = new DateTime(2023, 7, 6, 11, 41, 0, 226, DateTimeKind.Local).AddTicks(7569),
+                            EpisodeDate = new DateTime(2023, 7, 5, 20, 31, 25, 3, DateTimeKind.Local).AddTicks(768),
                             Notes = "Note 4",
                             Number = 4,
                             SeriesNumber = 1,
@@ -345,7 +348,7 @@ namespace DoctorWhoData.Migrations
                             EpisodeId = 5,
                             AuthorId = 5,
                             DoctorId = 5,
-                            EpisodeDate = new DateTime(2023, 7, 6, 11, 41, 0, 226, DateTimeKind.Local).AddTicks(7574),
+                            EpisodeDate = new DateTime(2023, 7, 5, 20, 31, 25, 3, DateTimeKind.Local).AddTicks(774),
                             Notes = "Note 5",
                             Number = 5,
                             SeriesNumber = 1,
@@ -489,11 +492,15 @@ namespace DoctorWhoData.Migrations
                 {
                     b.HasOne("DoctorWhoDomain.Entities.Author", "Author")
                         .WithMany("Episodes")
-                        .HasForeignKey("AuthorId");
+                        .HasForeignKey("AuthorId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("DoctorWhoDomain.Entities.Doctor", "Doctor")
                         .WithMany("Episodes")
-                        .HasForeignKey("DoctorId");
+                        .HasForeignKey("DoctorId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Author");
 
