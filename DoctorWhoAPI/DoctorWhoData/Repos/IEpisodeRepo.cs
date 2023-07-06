@@ -4,9 +4,9 @@ namespace DoctorWhoData.Repos
 {
     public interface IEpisodeRepo
     {
-        void AddCompanionToEpisodeAsync(Episode episode, Companion companion);
-        void AddEnemyToEpisodeAsync(Episode episode, Enemy enemy);
-        Task CreateAsync(Episode episode);
+        Task<Episode> AddCompanionToEpisodeAsync(int episodeId, Companion companion);
+        Task<Episode> AddEnemyToEpisodeAsync(int episodeId, Enemy enemy);
+        Task<Episode> CreateAsync(Episode episode);
         Task DeleteAsync(int episodeId);
         Task<IList<Episode>> GetAllAsync();
         Task<Episode> GetByIdAsync(int episodeId);

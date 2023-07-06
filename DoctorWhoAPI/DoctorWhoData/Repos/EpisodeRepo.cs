@@ -16,11 +16,25 @@ namespace DoctorWhoData.Repos
             this._context = context;
         }
 
-        public async Task CreateAsync(Episode episode)
+        public async Task<Episode> CreateAsync(Episode episode)
         {
-            var episodes = _context.Episodes;
-            episodes.Add(episode);
-            await SaveChangesAsync();
+            var newEpisode = new Episode
+            {
+                Number = episode.Number,
+                Type = episode.Type,
+                Title = episode.Title,
+                EpisodeDate = episode.EpisodeDate,
+                AuthorId = episode.AuthorId,
+                DoctorId = episode.DoctorId,
+                Notes = episode.Notes
+            };
+            newEpisode.Author = await _context.Authors.FindAsync(newEpisode.AuthorId);
+            newEpisode.Doctor = await _context.Doctors.FindAsync(newEpisode.DoctorId);
+                           
+            _context.Episodes.Add(newEpisode);
+            await _context.SaveChangesAsync();
+
+            return newEpisode;
         }
 
         public async Task DeleteAsync(int episodeId)
@@ -63,20 +77,22 @@ namespace DoctorWhoData.Repos
             return (await _context.SaveChangesAsync() >= 0);
         }
 
-        public async void AddCompanionToEpisodeAsync(Episode episode, Companion companion)
+        public async Task<Episode> AddCompanionToEpisodeAsync(int episodeId, Companion companion)
         {
-            var myEpisode = _context.Episodes.Where(e => e.Equals(episode)).FirstOrDefault();
+            var myEpisode = await _context.Episodes.FindAsync(episodeId);
             if (myEpisode != null)
-                episode.Companions.Add(companion);
+                myEpisode.Companions.Add(companion);
             await SaveChangesAsync();
+            return myEpisode;
         }
 
-        public async void AddEnemyToEpisodeAsync(Episode episode, Enemy enemy)
+        public async Task<Episode> AddEnemyToEpisodeAsync(int episodeId, Enemy enemy)
         {
-            var myEpisode = _context.Episodes.Where(e => e.Equals(episode)).FirstOrDefault();
+            var myEpisode = await  _context.Episodes.FindAsync(episodeId);
             if (myEpisode != null)
-                episode.Enemies.Add(enemy);
+                myEpisode.Enemies.Add(enemy);
             await SaveChangesAsync();
+            return myEpisode;
         }
 
     }
