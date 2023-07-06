@@ -42,11 +42,14 @@ namespace DoctorWho.API.Controllers
                 return BadRequest("Episode is required");
             if (enemy == null)
                 return BadRequest();
-            var episode = await _episodeRepo.AddEnemyToEpisodeAsync(episodeId, _mapper.Map < Enemy > enemy);
-            if (episode = null)
+            var episode = await _episodeRepo.AddEnemyToEpisodeAsync(episodeId, _mapper.Map <Enemy> (enemy));
+            if (episode is not null)
                 return NotFound("Episode not found");
-            if (!await episode.Enemies.FindAsync(enemy))
+            if (episode.Enemies.FirstOrDefault(e => e.EnemyId == enemy.EnemyId) is null)
+            {
                 return BadRequest();
+            }
+
             return Ok(episode);
         }
         public async Task<ActionResult<Episode>> AddCompanionToEpisode(int episodeId, CompanionDto companion)
@@ -54,12 +57,12 @@ namespace DoctorWho.API.Controllers
             if (episodeId == null)
                 return BadRequest("Episode is required");
             if (companion == null)
-                return BadRequest();
-            var episode = await _episodeRepo.AddEnemyToEpisodeAsync(episodeId, _mapper.Map < Companion > companion);
-            if (episode = null)
+                return BadRequest("Companion is requires");
+            var episode = await _episodeRepo.AddCompanionToEpisodeAsync(episodeId,_mapper.Map<Companion>(companion));
+            if (episode == null)
                 return NotFound("Episode not found");
-            if (!await episode.Companions.FindAsync(companion))
-                return BadRequest();
+            if (episode.Companions.FirstOrDefault(c => c.CompanionId == companion.CompanionId) is null)
+                return BadRequest("");
             return Ok(episode);
         }
     }
