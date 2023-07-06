@@ -9,6 +9,6 @@ namespace DoctorWhoData.Repos
         Task<IList<Author>> GetAllAsync();
         Task<Author> GetByIdAsync(int authorId);
         Task<bool> SaveChangesAsync();
-        Task UpdateAsync(int authorId, Author? author = null);
+        Task<Author> UpdateAsync(Author author);
     }
 }

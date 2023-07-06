@@ -50,13 +50,17 @@ namespace DoctorWhoData.Repos
             return author;
         }
 
-        public async Task UpdateAsync(int authorId, Author? author = null)
+        public async Task<Author> UpdateAsync(Author author)
         {
-            var oldVal = _context.Authors.Where(
-              e => e.AuthorId.Equals(authorId)).FirstOrDefault();
+            var oldVal = _context.Authors
+                .Where(
+              e => e.AuthorId.Equals(author.AuthorId)).FirstOrDefault();
             if (oldVal != null)
-                author = oldVal;
+            {
+                oldVal.Name = author.Name;
+            }
             await SaveChangesAsync();
+            return oldVal;
         }
         public async Task<bool> SaveChangesAsync()
         {
